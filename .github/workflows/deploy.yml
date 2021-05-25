@@ -1,19 +1,24 @@
-name: Deploy 
+name: Deploy
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the site
-      run: |
-        npm install
-        
+      - uses: actions/checkout@v2
+      - name: Build the site
+        run: |
+          npm install
+
+      - name: Github pages
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: master
+          token: ${{ secrets.GITHUB_TOKEN }}
+          folder: shubhamtalan996.github.io
+          clean: true
