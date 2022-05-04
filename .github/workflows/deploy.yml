@@ -16,7 +16,7 @@ jobs:
           npm install
 
       - name: Github pages
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+        uses: google-github-actions/setup-gcloud@master
         with:
           branch: master
           token: ${{ secrets.GITHUB_TOKEN }}
